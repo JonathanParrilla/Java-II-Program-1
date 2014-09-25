@@ -1,0 +1,112 @@
+/*********************************************************************
+EXTERNAL CLASS
+
+Author : Jonathan Parrilla
+Course : COP 3804 MW 7:50 PM - 9:05PM
+Professor : Michael Robinson
+
+Program # : pgm1
+- Implement a main program that will use external classes and constructors using
+- Enhanced for loops
+- Final Variables
+- Variable-Length Argument List in Methods
+- ternary "if"
+- Use GUI messageDialog Boxes and inputDialogBoxes for all communications with the user.
+- Each task must be done inside its own method.
+- Use the main method to create variables and call the methods ONLY.
+- Make the FINAL variables global.
+- External class and Contructors DO NOT contain data, they PROCESS data sent by the user (main program)
+
+Due Date : 09/12/2012
+Certification:
+I hereby certify that this work is my own and none of it is the work of any other person.
+..........{ your signature }..........
+
+
+
+*********************************************************************/
+
+import javax.swing.JOptionPane;
+
+public class ParrillaJClass 
+{
+	//Misc Methods
+	public static void p(Object stuff)
+	{
+		System.out.println(stuff);
+	}
+	
+	public static void pl()
+	{
+		System.out.println();
+	}
+	
+	public static void div()
+	{
+		//System.out.println("------------------------------------------------------");
+		p("--------------------------------------------------------");
+	}
+	
+	//GUI Methods
+	public static void doMessageBox (Object message)
+	{
+		JOptionPane.showMessageDialog(null, message);
+	}
+
+
+	public static double GradeAverage(double grades[])
+	{
+		double total = 0;
+		
+		for(double temp: grades)
+		{
+			total = total + temp;
+		}
+		
+		return (total/grades.length);
+		
+	}
+	
+	public static void Sorter(Object Numbers[])
+	{
+		int fn = (int)Numbers[0];
+		int sn = (int)Numbers[1];
+		int tn = (int)Numbers[2];
+		
+		ParrillaJConst SortNumbers = new ParrillaJConst (fn, sn, tn);
+		
+		doMessageBox("The Numbers 66, 40, and 2 in ascending order are: \n" 
+		+ SortNumbers.getfirstNumber() + " , " 
+		+ SortNumbers.getsecondNumber()  + " , "
+		+ SortNumbers.getthirdNumber());	
+
+		
+		
+	}
+	
+	
+	public static void MyMajor( String major)
+	{
+		//print my major
+		doMessageBox("Your Major is: " +major);
+	}
+	
+	public static void MyCreditsTaken(String ct)
+	{
+		//Print credits taken
+		doMessageBox("Your credits taken are: " +ct);
+	}
+	
+	public static void MyCreditsNeeded(String cn)
+	{
+		//print credits needed to graduate
+		doMessageBox("Your credits needed to graduate are: " +cn);
+	}
+	
+	public static void MyGPA(String gpa)
+	{
+		//print current gpa
+		doMessageBox("Your current GPA is: " +gpa);
+	}
+
+}

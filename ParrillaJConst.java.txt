@@ -1,0 +1,166 @@
+/*********************************************************************
+CONSTRUCTOR
+
+Author : Jonathan Parrilla
+Course : COP 3804 MW 7:50 PM - 9:05PM
+Professor : Michael Robinson
+
+Program # : pgm1
+- Implement a main program that will use external classes and constructors using
+- Enhanced for loops
+- Final Variables
+- Variable-Length Argument List in Methods
+- ternary "if"
+- Use GUI messageDialog Boxes and inputDialogBoxes for all communications with the user.
+- Each task must be done inside its own method.
+- Use the main method to create variables and call the methods ONLY.
+- Make the FINAL variables global.
+- External class and Contructors DO NOT contain data, they PROCESS data sent by the user (main program)
+
+Due Date : 09/12/2012
+Certification:
+I hereby certify that this work is my own and none of it is the work of any other person.
+..........{ your signature }..........
+
+
+
+*********************************************************************/
+
+public class ParrillaJConst 
+{
+	//private variables
+	private int firstNumber;
+	private int secondNumber;
+	private int thirdNumber;
+	//private double Grades[] = {0,0,0,0,0,0,0,0};
+	private double Grades[] = new double[8];
+	
+	/*private double Grades[]; 
+	 * Caused a java.lang.NullPointerException in Main, 
+	 * which was tied to line 26 of this constructor,
+	 * Which is where I tried to initialize Grades[],
+	 * using an enhanced for loop.
+	 */
+	
+	private String FirstName;
+	private String LastName;
+	
+	//constructors
+	public ParrillaJConst()
+	{
+		
+	}
+
+	public ParrillaJConst(double ClassGrades[])
+	{
+
+		int x = 0;
+		for(double temp: ClassGrades) 
+		{
+			Grades[x] = temp;
+			System.out.println("Grades: " +Grades[x]);
+			x++;
+		}
+		
+		
+	}
+	
+	public ParrillaJConst(int fn, int sn, int tn)
+	{
+		firstNumber = fn;
+		secondNumber = sn;
+		thirdNumber = tn;
+		
+		//Sort the numbers in ascending order
+		int temp = 0;
+		
+		if(firstNumber > secondNumber)
+		{
+			temp = secondNumber;
+			secondNumber = firstNumber;
+			firstNumber = temp;
+		}
+		
+		if(secondNumber > thirdNumber)
+		{
+			temp = thirdNumber;
+			thirdNumber = secondNumber;
+			secondNumber = temp;
+		}
+		
+		if(firstNumber > secondNumber)
+		{
+			temp = secondNumber;
+			secondNumber = firstNumber;
+			firstNumber = temp;
+		}
+		
+	}
+	
+	
+	//Setters
+	public void setfirstNumber(int fn)
+	{
+		firstNumber = fn;
+	}
+	
+	public void setsecondNumber(int sn)
+	{
+		secondNumber = sn;
+	}
+	
+	public void setthirdNumber(int tn)
+	{
+		thirdNumber = tn;
+	}
+	
+	public void setFirstName(String name)
+	{
+		FirstName = name;
+	}
+	
+	public void setLastName(String name)
+	{
+		LastName = name;
+	}
+	
+	public void setGrades(double[] rGrades)
+	{
+		Grades[0] = rGrades[0];
+		Grades[1] = rGrades[1];
+		Grades[2] = rGrades[2];
+		Grades[3] = rGrades[3];
+	}
+	
+	//Getters
+	public String getLastName()
+	{
+		return LastName;
+	}
+	
+	public String getFirstName()
+	{
+		return FirstName;
+	}
+	
+	public double[] getGrades()
+	{
+		return Grades;
+	}
+	
+	public int getfirstNumber()
+	{
+		return firstNumber;
+	}
+	
+	public int getsecondNumber()
+	{
+		return secondNumber;
+	}
+	
+	public int getthirdNumber()
+	{
+		return thirdNumber;
+	}
+	
+}

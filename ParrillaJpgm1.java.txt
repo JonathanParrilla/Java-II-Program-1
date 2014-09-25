@@ -1,0 +1,159 @@
+/*********************************************************************
+MAIN PROGRAM
+
+Author : Jonathan Parrilla
+Course : COP 3804 MW 7:50 PM - 9:05PM
+Professor : Michael Robinson
+
+Program # : pgm1
+- Implement a main program that will use external classes and constructors using
+- Enhanced for loops
+- Final Variables
+- Variable-Length Argument List in Methods
+- ternary "if"
+- Use GUI messageDialog Boxes and inputDialogBoxes for all communications with the user.
+- Each task must be done inside its own method.
+- Use the main method to create variables and call the methods ONLY.
+- Make the FINAL variables global.
+- External class and Contructors DO NOT contain data, they PROCESS data sent by the user (main program)
+
+Due Date : 09/12/2012
+Certification:
+I hereby certify that this work is my own and none of it is the work of any other person.
+..........{ your signature }..........
+
+
+
+*********************************************************************/
+
+
+import javax.swing.JOptionPane;
+
+public class ParrillaJpgm1 
+{
+	//Misc Methods
+	public static void p(Object stuff)
+	{
+		System.out.println(stuff);
+	}
+	
+	public static void pl()
+	{
+		System.out.println();
+	}
+	
+	public static void div()
+	{
+		p("--------------------------------------------------------");
+	}
+	
+	//GUI Methods
+	public static String doInputBox(String question)
+	{
+		return(JOptionPane.showInputDialog(question));
+	}
+	
+	public static void doMessageBox (Object message)
+	{
+		JOptionPane.showMessageDialog(null, message);
+	}
+	
+	
+	//Methods that will be called
+	public static void GetName()
+	{
+		p("Getting Name Method");
+		pl();
+		
+		//Object of a class that accepts nothing
+		ParrillaJConst Nothing = new ParrillaJConst();
+		 
+		
+		//Use this constructor's sets and gets to set the name and print it
+		Nothing.setFirstName(doInputBox("Enter your first name"));
+		Nothing.setLastName(doInputBox("Enter your last name"));
+		
+		doMessageBox("Hello " +Nothing.getFirstName() +Nothing.getLastName());
+		
+		pl();
+		div();
+	}
+	
+	
+	public static void NumberSorter()
+	{
+		p("Sorting Numbers Method");
+		pl();
+		
+		final Object numbers[] = {66, 40, 2};
+		
+		ParrillaJClass.Sorter(numbers);
+		
+		pl();
+		div();
+	}
+	
+	public static void TheGrades()
+	{
+		p("Average Grades Method");
+		pl();
+		
+		final double Grades[] = {96,98,95,95,100,95,96,100};
+		
+		doMessageBox("Your expected grades are:\n" 
+		+"Program 1:  " +Grades[0] +"\n" 
+		+"Program 2:  " +Grades[1] +"\n" 
+		+"Program 3:  " +Grades[2] +"\n" 
+		+"Program 4:  " +Grades[3] +"\n"
+		+"      Exam 1:  " +Grades[4] +"\n" 
+		+"      Exam 2:  " +Grades[5] +"\n" 
+		+"      Exam 3:  " +Grades[6] +"\n" 
+		+"Final Exam: " +Grades[7]);
+		
+		ParrillaJConst Averager = new ParrillaJConst(Grades);
+		
+		doMessageBox("Your Average would be: " +ParrillaJClass.GradeAverage(Averager.getGrades()));
+		
+		pl();
+		div();
+	}
+	
+	public static void Information()
+	{
+		p("Getting Information Method");
+		
+		final String major = doInputBox("What is your major?");;
+		final String creditsTaken = doInputBox("How many credits have you taken?");;
+		final String creditsNeeded = doInputBox("How many credits do you need to graduate?");;
+		final String currentGPA = doInputBox("What is your current GPA?");;
+		
+		ParrillaJClass.MyMajor(major);
+		ParrillaJClass.MyCreditsTaken(creditsTaken);
+		ParrillaJClass.MyCreditsNeeded((creditsNeeded));
+		ParrillaJClass.MyGPA(currentGPA);
+	}
+	
+	
+	//Main Method
+	public static void main (String arg[])
+	{
+		p("Starting the program.");
+		pl();
+		div();
+		
+		//call a method that gets your name
+		GetName();
+		
+		//call a method that accepts three numbers as array of objects
+		NumberSorter();
+		
+		//call a method that accept grades as an array of objects.
+		TheGrades();
+		
+		//Calling methods that will accept the following variables
+		Information();
+		
+		pl();
+		p("The End");
+	}
+}
